@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Livewire\Presensi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('presensi', Presensi::class)->name('presensi');
 });
